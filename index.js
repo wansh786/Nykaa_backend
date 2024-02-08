@@ -1,9 +1,16 @@
 const express=require("express")
-const cores=require("cores");
+const cors=require("cors");
 const { connection } = require("./db");
 const { userRouter } = require("./routers/user.router");
 const { postRouter } = require("./routers/post.router");
 const app=express();
+
+app.use(
+    cors({
+      origin:true,
+      credentials: true,
+    })
+  );
 
 app.use(express.json());
 
