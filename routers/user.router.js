@@ -42,7 +42,7 @@ userRouter.post("/login",async(req,res)=>{
             bcrypt.compare(password,user.password,(err,result)=>{
                 if(result){
                     const token=jwt.sign({userID:user._id,name:user.name},"masai")
-                    res.status(200).send({msg:"Login successful",token})
+                    res.status(200).send({msg:"Login successful","token":token})
                 }
                 else{
                     res.status(200).send({msg:"Wrong Ceranditials"})   
